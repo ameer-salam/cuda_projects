@@ -77,8 +77,12 @@
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <CudaCompile Include="blockDim_and_gridDim_example.cu" />
+    <CudaCompile Include="blockIdx_example_1.cu" />
     <CudaCompile Include="code_1.cu" />
     <CudaCompile Include="dim_variable_exp.cu" />
+    <CudaCompile Include="exercise_1.cu" />
+    <CudaCompile Include="gridIdx_example_1.cu" />
     <CudaCompile Include="kernel.cu" />
     <CudaCompile Include="threadIdx_example_1.cu" />
     <CudaCompile Include="two_dim_exp.cu" />
