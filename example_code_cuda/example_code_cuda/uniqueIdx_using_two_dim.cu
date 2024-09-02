@@ -26,8 +26,8 @@ __global__ void uniqueIdx_example(int* input)
 //	printf("\n\n");
 //
 //	int* a_data;
-//	cudaMalloc((void**)&a_data, array_byte_size);
-//	cudaMemcpy(a_data, array, array_byte_size, cudaMemcpyHostToDevice);
+	//cudaMalloc((void**)&a_data, array_byte_size);
+	//cudaMemcpy(a_data, array, array_byte_size, cudaMemcpyHostToDevice);
 //
 //	dim3 block(5);
 //	dim3 grid(2);
