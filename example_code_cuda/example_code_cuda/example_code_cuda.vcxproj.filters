@@ -8,6 +8,7 @@
     <CudaCompile Include="exercise_1.cu">
       <Filter>Exercise Programs</Filter>
     </CudaCompile>
+    <CudaCompile Include="uniqueIdx_example_1.cu" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">

@@ -86,6 +86,7 @@
     <CudaCompile Include="kernel.cu" />
     <CudaCompile Include="threadIdx_example_1.cu" />
     <CudaCompile Include="two_dim_exp.cu" />
+    <CudaCompile Include="uniqueIdx_example_1.cu" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
