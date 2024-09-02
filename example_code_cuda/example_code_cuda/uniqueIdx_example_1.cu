@@ -22,9 +22,9 @@ __global__ void uniqueIdx_call_threadIdx(int* input) //the aprameter is the poin
 //	}
 //	printf("\n");
 //
-//	int * a_data;
-//	cudaMalloc((void**)&a_data, array_byte_size);
-//	cudaMemcpy(a_data, data, array_byte_size, cudaMemcpyHostToDevice);
+	//int * a_data;
+	//cudaMalloc((void**)&a_data, array_byte_size);
+	//cudaMemcpy(a_data, data, array_byte_size, cudaMemcpyHostToDevice);
 //
 //	dim3 grid(1);
 //	dim3 block(8);

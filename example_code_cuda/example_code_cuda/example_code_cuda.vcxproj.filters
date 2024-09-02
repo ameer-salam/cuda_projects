@@ -9,6 +9,7 @@
       <Filter>Exercise Programs</Filter>
     </CudaCompile>
     <CudaCompile Include="uniqueIdx_example_1.cu" />
+    <CudaCompile Include="uniqueIdx_using_two_dim.cu" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
