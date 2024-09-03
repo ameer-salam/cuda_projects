@@ -8,7 +8,6 @@
     <CudaCompile Include="exercise_1.cu">
       <Filter>Exercise Programs</Filter>
     </CudaCompile>
-    <CudaCompile Include="uniqueIdx_example_1.cu" />
     <CudaCompile Include="uniqueIdx_using_two_dim.cu" />
     <CudaCompile Include="2dim_uniqueIdx_example.cu" />
     <CudaCompile Include="blockDim_and_gridDim_example.cu" />
@@ -18,7 +17,9 @@
     <CudaCompile Include="2dim_uniqueIdx_example_2.cu" />
     <CudaCompile Include="2dim_uniqueIdx_example_2d2d.cu" />
     <CudaCompile Include="mem_functions_example.cu" />
-    <CudaCompile Include="number_of_threads_for_efficiency.cu" />
+    <CudaCompile Include="exercise_2.cu">
+      <Filter>Exercise Programs</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
