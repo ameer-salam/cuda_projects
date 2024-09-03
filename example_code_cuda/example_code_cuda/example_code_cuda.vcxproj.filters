@@ -10,6 +10,15 @@
     </CudaCompile>
     <CudaCompile Include="uniqueIdx_example_1.cu" />
     <CudaCompile Include="uniqueIdx_using_two_dim.cu" />
+    <CudaCompile Include="2dim_uniqueIdx_example.cu" />
+    <CudaCompile Include="blockDim_and_gridDim_example.cu" />
+    <CudaCompile Include="blockIdx_example_1.cu" />
+    <CudaCompile Include="gridIdx_example_1.cu" />
+    <CudaCompile Include="threadIdx_example_1.cu" />
+    <CudaCompile Include="2dim_uniqueIdx_example_2.cu" />
+    <CudaCompile Include="2dim_uniqueIdx_example_2d2d.cu" />
+    <CudaCompile Include="mem_functions_example.cu" />
+    <CudaCompile Include="number_of_threads_for_efficiency.cu" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
