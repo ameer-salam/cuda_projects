@@ -21,6 +21,7 @@
       <Filter>Exercise Programs</Filter>
     </CudaCompile>
     <CudaCompile Include="array_summation.cu" />
+    <CudaCompile Include="array_summation_with_validation.cu" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
