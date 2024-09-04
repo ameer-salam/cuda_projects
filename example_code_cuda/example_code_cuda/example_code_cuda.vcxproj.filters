@@ -20,6 +20,7 @@
     <CudaCompile Include="exercise_2.cu">
       <Filter>Exercise Programs</Filter>
     </CudaCompile>
+    <CudaCompile Include="array_summation.cu" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
