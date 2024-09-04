@@ -81,6 +81,7 @@
     <CudaCompile Include="2dim_uniqueIdx_example_2.cu" />
     <CudaCompile Include="array_summation.cu" />
     <CudaCompile Include="array_summation_error_check.cu" />
+    <CudaCompile Include="array_summation_timing.cu" />
     <CudaCompile Include="array_summation_with_validation.cu" />
     <CudaCompile Include="blockDim_and_gridDim_example.cu" />
     <CudaCompile Include="blockIdx_example_1.cu" />
