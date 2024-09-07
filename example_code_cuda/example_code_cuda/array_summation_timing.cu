@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include<time.h>
 #include <random>
 
 //this program is for CPU array summation
@@ -77,7 +78,7 @@ int main()
 	error = cudaMalloc((int**)&device_a1, array_byte_size);
 			if (error != cudaSuccess)
 			{
-				fprintf(stderr, "%s\n", cudaGetErrorString(error));
+				fprintf(stderr, "%s\n", cudaGetErrorString(error));https://www.freepik.com/free-photos-vectors/white
 			}
 	error = cudaMalloc((int**)&device_a2, array_byte_size);
 			if (error != cudaSuccess)
@@ -114,24 +115,35 @@ int main()
 	cpu_array_summation(a1, a2, cpu_results, array_size);
 	cpu_array_summation_stop = clock();
 
+	//to calculate GPU timings we need cudaEventCreate
+	cudaEvent_t g_start, g_stop;
+	cudaEventCreate(&g_start);
+	cudaEventCreate(&g_stop);
+
 	//lets call kernel function and lets start the array summation at device (GPU)
 	//also calculating GPU execution time
 	int threads_each_block = 512;
 	dim3 block(threads_each_block);
 	dim3 grid((array_size / threads_each_block + 1));
 
-	clock_t gpu_array_summation_start, gpu_array_summation_stop;
-	gpu_array_summation_start = clock();
+	cudaEventRecord(g_start, 0);
 	gpu_array_summation << <grid, block >> > (device_a1, device_a2, device_results, array_size);
-	cudaDeviceSynchronize();
-	gpu_array_summation_stop = clock();
+	cudaEventRecord(g_stop, 0);
+
+	cudaEventSynchronize(g_stop);
+
+	float gpu_elappsedTime;
+	cudaEventElapsedTime(&gpu_elappsedTime, g_start, g_stop);
+
+	//cleaning up the events
+	cudaEventDestroy(g_start);
+	cudaEventDestroy(g_stop);
 
 	//lets copy the results from Device to Host
 	//calculate the time too
 	clock_t time_for_data_device_to_host_start, time_for_data_device_to_host_stop;
 	time_for_data_device_to_host_start = clock();
 	error = cudaMemcpy(gpu_results, device_results, array_byte_size, cudaMemcpyDeviceToHost);
-
 	if (error != cudaSuccess)
 		fprintf(stderr, "%s\n", cudaGetErrorString(error));
 	time_for_data_device_to_host_stop = clock();
@@ -144,6 +156,16 @@ int main()
 	printf("We will be comparing the time taken for the CPU and the GPU to complete the above task\n");
 	printf("we will also calculate the time taken to move data from Host(CPU) to the Device(GPU) but this timing will be neglected\nas we are primarily focusing on the computing speed of CPU and GPU in parallel computing tasks\n\n\n");
 	
+	//lets calculate the time taken for each task
+	printf("\n\nThe time taken for Host variables allovation is : %4.16f \n", (double)((double)(host_variable_allocation_stop - host_variable_allocation_start)/CLOCKS_PER_SEC));
+	printf("The time taken for generating and assigning random values is : %4.16f \n", (double)((double)(random_value_gen_and_assign_stop - random_value_gen_and_assign_start) / CLOCKS_PER_SEC));
+	printf("The time taken for pointer variables to hold address of device variables : %4.16f \n", (double)((double)(device_memory_allocation_end - device_memory_allocation_start) / CLOCKS_PER_SEC));
+	printf("The time taken for copying host variables to device variable address : %4.16f \n", (double)((double)(time_for_data_host_to_device_stop - time_for_data_host_to_device_start) / CLOCKS_PER_SEC));
+	printf("The time taken for copying results from device to host : %4.16f \n", (double)((double)(time_for_data_device_to_host_stop - time_for_data_device_to_host_start) / CLOCKS_PER_SEC));
+	printf("The time taken for CPU array summation function : %4.16f \n", (double)((double)(cpu_array_summation_stop - cpu_array_summation_start) / CLOCKS_PER_SEC));
+	printf("The time taken for GPU array summation function : %4.16f \n", gpu_elappsedTime); //(double)((double)(gpu_array_summation_stop - gpu_array_summation_start) / CLOCKS_PER_SEC)
+
+
 	free(a1);		free(a2);		free(cpu_results);		free(gpu_results);
 	cudaDeviceReset();
 	return 0;
