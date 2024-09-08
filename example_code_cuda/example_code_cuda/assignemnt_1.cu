@@ -49,6 +49,7 @@ int main()
 	int array_size = 4194304;
 	int array_byte_size = 4194304 * sizeof(int);
 	int *a1, *a2, *a3 ,*c_result, *g_results;
+	cudaError error;
 
 	//allocating memeory for the array1 and array2
 	a1 = (int*)malloc(array_byte_size);
@@ -60,9 +61,9 @@ int main()
 	//randomly allocating elements to the  arays
 	for (int i = 0; i < array_size; i++)
 	{
-		a1[i] = rand() % 1000 + 1;
-		a2[i] = rand() % 1000 + 1;
-		a3[i] = rand() % 1000 + 1;
+		a1[i] = rand() % array_size + 1;
+		a2[i] = rand() % array_size + 1;
+		a3[i] = rand() % array_size + 1;
 	}
 
 	//cpu addition function
@@ -76,15 +77,43 @@ int main()
 	int *d_a1, *d_a2, *d_a3, *d_results;
 
 	//allocating memory to store the variables
-	cudaMalloc((int**)&d_a1, array_byte_size);
-	cudaMalloc((int**)&d_a2, array_byte_size);
-	cudaMalloc((int**)&d_a3, array_byte_size);
-	cudaMalloc((int**)&d_results, array_byte_size);
+	error = cudaMalloc((int**)&d_a1, array_byte_size);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
+	error = cudaMalloc((int**)&d_a2, array_byte_size);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
+	error = cudaMalloc((int**)&d_a3, array_byte_size);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
+	error = cudaMalloc((int**)&d_results, array_byte_size);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
 
 	//transfering data from host to the device
-	cudaMemcpy(d_a1, a1, array_byte_size, cudaMemcpyHostToDevice);
-	cudaMemcpy(d_a2, a2, array_byte_size, cudaMemcpyHostToDevice);
-	cudaMemcpy(d_a3, a3, array_byte_size, cudaMemcpyHostToDevice);
+	error = cudaMemcpy(d_a1, a1, array_byte_size, cudaMemcpyHostToDevice);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
+	error = cudaMemcpy(d_a2, a2, array_byte_size, cudaMemcpyHostToDevice);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
+	error = cudaMemcpy(d_a3, a3, array_byte_size, cudaMemcpyHostToDevice);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
 
 	//declaring the grid and block
 	int block_size = 128;
@@ -99,11 +128,25 @@ int main()
 	gpu_clock_stop = clock();
 
 	//copying back the result from GPU to CPU
-	cudaMemcpy(g_results, d_results, array_byte_size, cudaMemcpyDeviceToHost);
-
+	error = cudaMemcpy(g_results, d_results, array_byte_size, cudaMemcpyDeviceToHost);
+	if (error != cudaSuccess)
+	{
+		fprintf(stderr, "%s\n", cudaGetErrorString(error));
+	}
 
 	//comparission function
 	compare(c_result, g_results, array_size);
+
+	//printitng the time
+	double cpu_time = cpu_clock_stop - cpu_clock_start;
+	double gpu_time = gpu_clock_stop - gpu_clock_start;
+
+	double cpu_time_total = cpu_time / CLOCKS_PER_SEC;
+	double gpu_time_total = gpu_time / CLOCKS_PER_SEC;
+
+	printf("The CPU time is : %4.16f\n", cpu_time);
+	printf("The GPU time is : %4.16f\n", gpu_time);
+
 
 	free(a1); free(a2); free(a3); free(c_result); free(g_results);
 	cudaDeviceReset();
