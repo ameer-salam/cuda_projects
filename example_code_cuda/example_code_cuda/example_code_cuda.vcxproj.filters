@@ -24,6 +24,7 @@
     <CudaCompile Include="array_summation_with_validation.cu" />
     <CudaCompile Include="array_summation_error_check.cu" />
     <CudaCompile Include="array_summation_timing.cu" />
+    <CudaCompile Include="assignemnt_1.cu" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
