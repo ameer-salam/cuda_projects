@@ -87,6 +87,7 @@
     <CudaCompile Include="blockDim_and_gridDim_example.cu" />
     <CudaCompile Include="blockIdx_example_1.cu" />
     <CudaCompile Include="code_1.cu" />
+    <CudaCompile Include="device_properties.cu" />
     <CudaCompile Include="dim_variable_exp.cu" />
     <CudaCompile Include="exercise_1.cu" />
     <CudaCompile Include="2dim_uniqueIdx_example_2d2d.cu" />
