@@ -77,13 +77,14 @@
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <CudaCompile Include="1_warp_demo.cu" />
     <CudaCompile Include="2dim_uniqueIdx_example.cu" />
     <CudaCompile Include="2dim_uniqueIdx_example_2.cu" />
     <CudaCompile Include="array_summation.cu" />
     <CudaCompile Include="array_summation_error_check.cu" />
     <CudaCompile Include="array_summation_timing.cu" />
     <CudaCompile Include="array_summation_with_validation.cu" />
-    <CudaCompile Include="assignemnt_1.cu" />
+    <CudaCompile Include="assignemnt_2.cu" />
     <CudaCompile Include="blockDim_and_gridDim_example.cu" />
     <CudaCompile Include="blockIdx_example_1.cu" />
     <CudaCompile Include="code_1.cu" />

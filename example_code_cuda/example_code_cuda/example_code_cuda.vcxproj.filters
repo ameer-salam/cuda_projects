@@ -1,35 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CudaCompile Include="code_1.cu" />
-    <CudaCompile Include="dim_variable_exp.cu" />
-    <CudaCompile Include="kernel.cu" />
-    <CudaCompile Include="two_dim_exp.cu" />
     <CudaCompile Include="exercise_1.cu">
       <Filter>Exercise Programs</Filter>
     </CudaCompile>
-    <CudaCompile Include="uniqueIdx_using_two_dim.cu" />
-    <CudaCompile Include="2dim_uniqueIdx_example.cu" />
-    <CudaCompile Include="blockDim_and_gridDim_example.cu" />
-    <CudaCompile Include="blockIdx_example_1.cu" />
-    <CudaCompile Include="gridIdx_example_1.cu" />
-    <CudaCompile Include="threadIdx_example_1.cu" />
-    <CudaCompile Include="2dim_uniqueIdx_example_2.cu" />
-    <CudaCompile Include="2dim_uniqueIdx_example_2d2d.cu" />
-    <CudaCompile Include="mem_functions_example.cu" />
     <CudaCompile Include="exercise_2.cu">
       <Filter>Exercise Programs</Filter>
     </CudaCompile>
-    <CudaCompile Include="array_summation.cu" />
-    <CudaCompile Include="array_summation_with_validation.cu" />
-    <CudaCompile Include="array_summation_error_check.cu" />
-    <CudaCompile Include="array_summation_timing.cu" />
-    <CudaCompile Include="assignemnt_1.cu" />
-    <CudaCompile Include="device_properties.cu" />
+    <CudaCompile Include="uniqueIdx_using_two_dim.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="2dim_uniqueIdx_example.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="2dim_uniqueIdx_example_2.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="2dim_uniqueIdx_example_2d2d.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="array_summation.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="array_summation_with_validation.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="array_summation_timing.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="array_summation_error_check.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="blockDim_and_gridDim_example.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="blockIdx_example_1.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="code_1.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="device_properties.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="dim_variable_exp.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="gridIdx_example_1.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernel.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="mem_functions_example.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="threadIdx_example_1.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="two_dim_exp.cu">
+      <Filter>Section 1</Filter>
+    </CudaCompile>
+    <CudaCompile Include="assignemnt_2.cu">
+      <Filter>Assignments</Filter>
+    </CudaCompile>
+    <CudaCompile Include="1_warp_demo.cu">
+      <Filter>Section 2</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
       <UniqueIdentifier>{a97b20e9-8abf-437a-9689-c94d0a3f28d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Section 1">
+      <UniqueIdentifier>{c34f9f74-8abd-4ff1-9d3a-d04d90aa7765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assignments">
+      <UniqueIdentifier>{d06660a7-98c9-4b0e-ad3b-fd29539607fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Section 2">
+      <UniqueIdentifier>{802fca34-7888-4158-91da-d9a789f688db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
