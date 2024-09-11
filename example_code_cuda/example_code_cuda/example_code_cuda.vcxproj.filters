@@ -67,6 +67,9 @@
     <CudaCompile Include="1_warp_demo.cu">
       <Filter>Section 2</Filter>
     </CudaCompile>
+    <CudaCompile Include="warp_divergence.cu">
+      <Filter>Section 2</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exercise Programs">
