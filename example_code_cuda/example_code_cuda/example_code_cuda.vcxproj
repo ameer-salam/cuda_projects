@@ -99,6 +99,7 @@
     <CudaCompile Include="threadIdx_example_1.cu" />
     <CudaCompile Include="two_dim_exp.cu" />
     <CudaCompile Include="uniqueIdx_using_two_dim.cu" />
+    <CudaCompile Include="warpDivergnenceTest.cu" />
     <CudaCompile Include="warp_divergence.cu" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
