@@ -18,7 +18,7 @@ __global__ void no_divergence()
 	if (warp_id_of_thread % 2 == 0)
 	{
 		a = 100;
-		b = 50;
+		b = 50.0;
 	}
 	else
 	{
@@ -32,6 +32,8 @@ __global__ void with_divergence()
 	int gid_of_thread = threadIdx.x + (blockDim.x * blockIdx.x);
 
 	float a, b;
+	a = b = 0;
+
 
 	//here we will be diverging the threads inside the warps
 	if (gid_of_thread % 2 == 0)
@@ -48,6 +50,9 @@ __global__ void with_divergence()
 
 int main()
 {
+	printf("WARP DIVERGENCE EXAMPLE\n\n");
+
+
 	dim3 grid();
-	dim3 block(128)
+	dim3 block(128);
 }
